@@ -1,0 +1,30 @@
+{% extends 'calcu/layout.html' %} 
+
+{% block header %}
+<h1>{{ title }}</h1>
+{% endblock header %}
+
+{% block content %}
+<p>{{ msg }}</p>
+<table>
+    <form action="{% url 'result' %}" method="POST" >{% csrf_token %}
+        {{setup.as_table}}
+        <div class="cal_submit"><input type="submit" value="計算開始"></div>
+    </form>
+</table>
+\begin{align*}
+\frac{\partial u}{\partial t}+c\frac{\partial u}{\partial x}=0\tag{1}
+\end{align*}
+
+(1)式の離散化は以下のようになります。
+
+\begin{align*}
+\frac{u^{n+1}_{i}-u^{n}_{i}}{\Delta t}+c\frac{u^{n}_{i}-u^{n}_{i-1}}{\Delta x}=0
+\end{align*}
+
+\begin{align*}
+u^{n+1}_{i}=u^{n}_{i}+\frac{c\Delta t}{\Delta x}\big(u^{n}_{i}-u^{n}_{i-1}\big)\tag{2}
+\end{align*}
+
+ここで、\(\alpha=\frac{c\Delta t}{\Delta x}\)として時間刻み空間の分割幅\(\Delta x\)と\(c\)で決まるものとしておきます。
+{% endblock content %}

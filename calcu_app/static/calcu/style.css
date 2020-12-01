@@ -1,0 +1,25 @@
+*{
+    color: gray;
+    font-size: 16px;
+}
+
+a{
+    text-decoration: none;
+    color: cadetblue;
+}
+
+li{
+    list-style-type:none
+}
+
+a:hover{
+    color: coral;
+    font-size: 20px;
+    transition-duration: 0.5s;
+}
+
+h1{
+    color: red;
+    opacity: 0.5;
+    font-size: 60px;
+}
